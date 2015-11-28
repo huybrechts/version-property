@@ -1,0 +1,9 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+    <f:entry title="Version property" field="property" description="The version property used elsewhere to refer to this project.">
+        <f:textbox />
+    </f:entry>
+    <f:entry title="POM location" field="pom" description="The location of the root POM. Defaults to pom.xml in the workspace root directory.">
+        <f:textbox />
+    </f:entry>
+</j:jelly>
