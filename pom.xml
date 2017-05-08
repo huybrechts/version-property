@@ -7,14 +7,14 @@
         <version>2.19</version>
     </parent>
     <artifactId>version-property</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>${project.artifactId}</name>
 
 	<scm>
 		<connection>scm:git:git@github.com:huybrechts/version-property.git</connection>
 		<developerConnection>scm:git:git@github.com:huybrechts/version-property.git</developerConnection>
-	  <tag>version-property-1.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 
     <properties>
