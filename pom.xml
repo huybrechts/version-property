@@ -12,8 +12,8 @@
     <name>${project.artifactId}</name>
 
 	<scm>
-		<connection>scm:git:git://github.com/jenkinsci/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}.git</developerConnection>
+		<connection>scm:git:git://github.com/huybrechts/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:huybrechts/${project.artifactId}.git</developerConnection>
 	</scm>
 
     <properties>
