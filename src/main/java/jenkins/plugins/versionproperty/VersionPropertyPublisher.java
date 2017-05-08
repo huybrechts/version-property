@@ -4,16 +4,8 @@ import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.Util;
-import hudson.model.AbstractBuild;
-import hudson.model.AbstractProject;
-import hudson.model.BuildListener;
-import hudson.model.Descriptor;
-import hudson.model.Fingerprint;
-import hudson.model.Hudson;
-import hudson.tasks.BuildStepMonitor;
-import hudson.tasks.Fingerprinter;
-import hudson.tasks.Publisher;
-import hudson.tasks.Recorder;
+import hudson.model.*;
+import hudson.tasks.*;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -136,7 +128,8 @@ public class VersionPropertyPublisher extends Recorder {
         return doLogSearch(
                 logFile,
                 "\\[INFO\\] Uploading project information for [^\\s]* ([^\\s]*)",
-                "Building .*? (\\d\\S.*)"
+                "\\[INFO\\] Updating \\S* to (\\d\\S*)",
+                "Building .*? (\\d\\S*)"
         );
     }
 
@@ -171,12 +164,15 @@ public class VersionPropertyPublisher extends Recorder {
     }
 
     @Extension(ordinal = -1)
-    public static final class DescriptorImpl extends Descriptor<Publisher> {
+    public static final class DescriptorImpl extends BuildStepDescriptor<Publisher> {
 
         @Override
         public String getDisplayName() {
             return "Version property fingerprinter";
         }
 
+        public boolean isApplicable(Class<? extends AbstractProject> aClass) {
+            return FreeStyleProject.class.isAssignableFrom(aClass);
+        }
     }
 }

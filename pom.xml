@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.424.1</version>
+        <version>2.19</version>
     </parent>
     <artifactId>version-property</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -12,26 +12,41 @@
     <name>${project.artifactId}</name>
 
 	<scm>
-		<connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-		<developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
+		<connection>scm:git:git://github.com/jenkinsci/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}.git</developerConnection>
 	</scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <findbugs.failOnError>false</findbugs.failOnError>
     </properties>
 
-    <developers>
-        <developer>
-            <id>huybrechts</id>
-            <name>Tom Huybrechts</name>
-        </developer>
-    </developers>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>2.4</version>
+            </extension>
+        </extensions>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>subversion</artifactId>
+            <version>2.6</version>
+        </dependency>
+    </dependencies>
 
-    <repositories>
-      <repository>
-        <id>m.g.o-public</id>
-        <url>http://maven.glassfish.org/content/groups/public/</url>
-      </repository>
-    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>hap-repository</id>
+            <name>HAP Maven Repository</name>
+            <url>scp://maven-repository.agfahealthcare.com/maven-repository</url>
+            <uniqueVersion>true</uniqueVersion>
+        </repository>
+    </distributionManagement>
 
 </project>
