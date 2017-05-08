@@ -12,8 +12,8 @@
     <name>${project.artifactId}</name>
 
 	<scm>
-		<connection>scm:git:git@github.com:huybrechts/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:git@github.com:huybrechts/${project.artifactId}.git</developerConnection>
+		<connection>scm:git:git@github.com:huybrechts/version-property.git</connection>
+		<developerConnection>scm:git:git@github.com:huybrechts/version-property.git</developerConnection>
 	</scm>
 
     <properties>
